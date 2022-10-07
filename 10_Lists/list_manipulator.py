@@ -34,7 +34,7 @@ def exchange(lst, ind):
             out_lst.append(lst[i])
         for j in range(0, ind + 1):
             out_lst.append(lst[j])
-        out_lst = list(map(int, out_lst))
+        # out_lst = list(map(int, out_lst))
         # print(out_lst)
         return out_lst
 
@@ -149,7 +149,7 @@ def last_odd(lst, n):
         print(odd_lst)
 
 
-lst_in = str(input()).split()
+lst_in = input().split()
 lst_final = []
 command = input().split()
 while command[0] != 'end':
@@ -180,4 +180,5 @@ while command[0] != 'end':
         lst_in = exchange(lst_in, int(command[1]))
 
     command = input().split()
-print(lst_in)
+lst_final = list(map(int, lst_in))
+print(lst_final)
