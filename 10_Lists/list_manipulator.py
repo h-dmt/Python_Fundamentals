@@ -27,6 +27,7 @@ def exchange(lst, ind):
     out_lst = []
     if ind >= len(lst) or ind < 0:
         print("Invalid index")
+        lst = list(map(int, lst))
         return lst
     else:
         for i in range(ind + 1, len(lst)):
@@ -149,6 +150,7 @@ def last_odd(lst, n):
 
 
 lst_in = str(input()).split()
+lst_final = []
 command = input().split()
 while command[0] != 'end':
     # check max even/odd
