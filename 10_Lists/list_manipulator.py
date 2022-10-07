@@ -34,7 +34,7 @@ def exchange(lst, ind):
         for j in range(0, ind + 1):
             out_lst.append(lst[j])
         out_lst = list(map(int, out_lst))
-        print(out_lst)
+        # print(out_lst)
         return out_lst
 
 
@@ -178,3 +178,4 @@ while command[0] != 'end':
         lst_in = exchange(lst_in, int(command[1]))
 
     command = input().split()
+print(lst_in)
