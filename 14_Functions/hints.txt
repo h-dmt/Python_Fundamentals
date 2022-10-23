@@ -1,0 +1,17 @@
+7.09.2022
+Hints for Exercises - Functions
+
+ex. 9) Password validator
+
+isalnum() --> check if alfanumeric
+
+ex. 10) perfect number
+
+ex.11) Loading bar
+
+
+def status_bar
+	...
+	
+	return f'{number}% [{'%' * number}{'.'*(100 - number)}]'
+

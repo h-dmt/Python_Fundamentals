@@ -70,9 +70,12 @@ div_elements = []
 while command[0] != '3:1':
     if command[0] == 'merge':
         out_lst = merge_fun(in_lst, int(command[1]), int(command[2]))
+        #print(out_lst)
     elif command[0] == 'divide':
         index_div = int(command[1])
+        #print(in_lst[index_div])
         div_elements = divide_fun(in_lst[index_div], int(command[2]))
+        #print(div_elements)
         del in_lst[index_div]
         for i in range(len(div_elements)):
             in_lst.insert(index_div + i, div_elements[i])
