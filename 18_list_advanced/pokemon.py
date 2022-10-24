@@ -24,16 +24,18 @@ def rem_index(index, lst):
     # If the given index is less than 0, remove the first element of the sequence,
     # and copy the last element to its place
     if index < 0:
-        rem_elem = lst[-1]
+        append_elem = lst[-1]
+        rem_elem = lst[0]
         del lst[0]
-        lst.insert(0, rem_elem)
+        lst.insert(0, append_elem)
     # If the given index is greater than the last index of the sequence,
     # remove the last element from the sequence, and copy the first element
     # to its place.
     elif index >= len(lst):
-        rem_elem = lst[0]
+        append_elem = lst[0]
+        rem_elem = lst[-1]
         del lst[-1]
-        lst.append(rem_elem)
+        lst.append(append_elem)
     else:
         # remove the element at that index from the sequence
         rem_elem = lst[index]
@@ -57,6 +59,6 @@ while len(pokemons) > 0:
     ind = int(input())
     pokemons, del_elem = rem_index(ind, pokemons)
     removed += del_elem
-    print(*pokemons, sep=' ')
+    # print(*pokemons, sep=' ')
 
 print(removed)

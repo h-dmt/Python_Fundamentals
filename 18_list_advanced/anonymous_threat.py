@@ -27,6 +27,8 @@ def merge_fun(lst_in, start, end):
         end = len(lst_in) - 1
     if start > len(lst_in):
         start = end - 1
+    if start < 0:
+        start = 0
     merge_str = ''.join(lst_in[start:end+1])
     del lst_in[start:end+1]
     lst_in.insert(start, merge_str)
