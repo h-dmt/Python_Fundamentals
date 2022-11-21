@@ -45,7 +45,7 @@ while inp_usr[0] != 'end of submissions':
     usr_contest = inp_usr[0]
     usr_contest_pass = inp_usr[1]
     username = inp_usr[2]
-    points = inp_usr[3]
+    points = int(inp_usr[3])
 
     # Valid contest?
     if usr_contest in contests:
