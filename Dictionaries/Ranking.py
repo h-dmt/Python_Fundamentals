@@ -17,8 +17,20 @@ Here is what you need to do.
     #  {contest1} -> {points}
 """
 
+
+def sort_points(dct):
+    names = [k for k in dct]
+    sort_dct = {}
+    for n in dct:
+        # sort the sub-dictionary by value
+        sort_dct[n] = dict(sorted(dct[n].items(), key=lambda item: item[1], reverse=True))
+    #print(sort_dct)
+    return sort_dct
+
+
 inp_cont = input().split(':')
 contests = {}
+# - taking the first input -
 while inp_cont[0] != 'end of contests':
     contest = inp_cont[0]
     password = inp_cont[1]
@@ -27,6 +39,8 @@ while inp_cont[0] != 'end of contests':
 
 inp_usr = input().split('=>')
 candidates = {}
+
+# - taking the second input -
 while inp_usr[0] != 'end of submissions':
     usr_contest = inp_usr[0]
     usr_contest_pass = inp_usr[1]
@@ -51,4 +65,32 @@ while inp_usr[0] != 'end of submissions':
             else:
                 candidates[username] = {usr_contest: points}
     inp_usr = input().split('=>')
-print(candidates)
+#print(candidates)
+
+# - find best candidate -
+scores_per_candidate = {}
+sum_score = 0
+for candidate in candidates:
+    for exam in candidates[candidate]:
+        sum_score += int(candidates[candidate][exam])
+    scores_per_candidate[candidate] = sum_score
+    sum_score = 0
+# print(scores_per_candidate)
+best = ['', 0]  # [ name_best_candidate, score ]
+for name in scores_per_candidate:
+    if scores_per_candidate[name] > best[1]:
+        best[0] = name
+        best[1] = scores_per_candidate[name]
+#print(best)
+
+# - sorting -
+sorted_candidates = sort_points(candidates)
+
+# - Formatting the output -
+print(f"Best candidate is {best[0]} with total {best[1]} points.")
+print('Ranking:')
+sorted_names = sorted(candidates)
+for key_name in sorted_names:
+    print(f"{key_name}")
+    for subject in sorted_candidates[key_name]:
+        print(f"#  {subject} -> {sorted_candidates[key_name][subject]}")
